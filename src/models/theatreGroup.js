@@ -51,7 +51,7 @@ export default {
 		   		yield put({ type:'collectionSuccess',payload:{ isCollection:reqData.data.success} });
 		   	}else{
 		   		if (reqData.data.code === -10) {
-		   			message.error(requestData.data.message + ', 请重试');
+		   			message.error(reqData.data.message + ', 请重试');
                     relanding();
 		   		}
 		   		if (reqData.data.code === -1) {
@@ -63,7 +63,13 @@ export default {
 
 	reducers:{
 		queryListSuccess(state,action){
-			const pageData = state.resultObject.concat(action.payload.resultObject);
+			var pageData = action.payload.resultObject;
+			try{
+				if (action.payload.query.pageNo > 1 && action.payload.query.tagIds[0] === state.curTag) {
+					pageData = state.resultObject.concat(action.payload.resultObject);
+				}
+			} catch(e) {}
+			
 			return{
 				...state,
 				resultObject:pageData,
@@ -76,6 +82,12 @@ export default {
 				...state,
 				tagArray:action.payload.tagArray,
 				loading:false,
+			}
+		},
+		collectionSuccess(state,action){
+			return{
+				...state,
+				isCollection:action.payload.isCollection,
 			}
 		},
 	},

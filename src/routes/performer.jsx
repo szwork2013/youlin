@@ -48,7 +48,7 @@ const Performer = ({
     	<div style = {{paddingBottom:50}}>
     		<Nav>
     		<Carousel autoplay>
-    			<div>{banner}</div>
+    		{banner.length > 0 ? banner : <div></div>}
     		</Carousel>
 	  		{
 

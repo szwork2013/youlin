@@ -9,6 +9,7 @@
     "dora-plugin-browser-history": "^0.2.0",
     "dva": "^1.1.0",
     "dva-loading": "^0.2.0",
+    "material-ui": "^0.16.7",
     "object-assign": "^4.1.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

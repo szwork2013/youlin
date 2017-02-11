@@ -1,9 +1,10 @@
 import React,{ Component ,PropTypes} from 'react';
-import {Input,Button,Icon,Form} from 'antd';
+import {Input,Button,Icon,Form,message} from 'antd';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
 import styles from './signup.less';
 import { fetchSendSMS ,fetchBindPhoneNumber,fetchLogin } from '../services/signup';
+import relanding from '../utils/relanding'
 
 const FormItem = Form.Item;
 
@@ -159,6 +160,11 @@ const Signup = Form.create()(React.createClass({
                     } catch(e) {
                         window.location.href = '/#/me/edit';
                         window.location.reload();
+                    }
+                } else {
+                    message.error(value.data.message);
+                    if (value.data.code === -10) {
+                        relanding();
                     }
                 }
             },error=>{

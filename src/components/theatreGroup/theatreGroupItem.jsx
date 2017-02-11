@@ -3,6 +3,7 @@ import { Tag,Button,Card } from 'antd';
 import { Link } from 'dva/router';
 import styles from './theatreGroupItem.less';
 import vote from '../../assets/crew/vote.png';
+import isVote from '../../assets/crew/isVote.png';
 import share from '../../assets/crew/share.png';
 import rankingList from '../../assets/crew/rankingList.png';
 import crewIcon from '../../assets/icon/crew.png';
@@ -72,7 +73,7 @@ class TheatreGroupItem extends Component{
 				    	</div>
 				    	<div className = { styles.features}>
 				    		<div onClick={()=>this.onCollection(id)}>
-								<img alt="example" src = {vote}/>
+								<img alt="example" src = {this.isCollection ? isVote:vote}/>
 							</div>
 							<Link to = { `theatreGroupDetail/${id}`}><img alt="example" src = {share}/></Link>
 						{/* <img alt="example" src = {rankingList}/> */}

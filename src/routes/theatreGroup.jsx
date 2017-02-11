@@ -166,6 +166,7 @@ class TheatreGroup extends Component{
 					    				startTime = {value.startTime}
 					    				stopTime = {value.stopTime}
 					    				createTime = {value.createTime}
+					    				isCollected = {value.isCollected}
 					    				onCollection = {(e)=>this.onCollection(e)}
 					    			/>
 					    		)
