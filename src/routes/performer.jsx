@@ -17,14 +17,16 @@ const Performer = ({
 	let banner = [];
 	for (var i = 0; i < bannerArray.length; i++) {
 		banner.push(
-			<div>
-		    	<div className={styles.boxTop}>
-		    		<img alt="example" src ={bannerArray[i].cover} />	    		
-		    		<div>
-		    			<p>{bannerArray[i].name}</p>
-		    		</div>
-		    	</div>
-		    </div>
+			<Link to = { `theatreGroupDetail/${bannerArray[i].value}`}>
+				<div>
+			    	<div className={styles.boxTop}>
+			    		<img src ={bannerArray[i].cover} />	    		
+			    		<div>
+			    			<p>{bannerArray[i].name}</p>
+			    		</div>
+			    	</div>
+			    </div>
+			</Link>
 		)
 	}
 
