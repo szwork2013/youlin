@@ -136,7 +136,7 @@ class UpPhotosVideo extends Component{
                     <img type = 'file' src = {this.state.photoUrl} onClick={()=>this.openModal()} className={styles.upPhoto} />
                 </div>
                 <div>
-                    <video controls="controls" src = {this.state.videoUrl} onClick={()=>this.openModal()} multiple={false} className={styles.upVideo} />
+                    <video controls="controls" src = {this.state.videoUrl} onClick={()=>this.openModal()} multiple={false} poster autoplay className={styles.upVideo} />
                 </div>
                 <Button onClick={()=>this.onSure()} className={styles.upButton}>确定</Button>
             </div>

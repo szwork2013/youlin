@@ -17,30 +17,19 @@ function UpdateVideo({
   return (
     <div style = {{paddingBottom:50}}>
         <div className={styles.prompt}>
-          <video  src='http://www.w3school.com.cn/i/movie.ogg' className={styles.video} controls="controls">
+          <video poster src='http://www.w3school.com.cn/i/movie.ogg' className={styles.video} controls="controls">
           </video>
           <p>示例视频提示用户</p>
         </div>
         <div className={styles.box}>
-            <video controls="controls"  className={styles.upVideo} src={introduceMyselfMoveUrl}>
+            <video controls="controls" poster autoplay  className={styles.upVideo} src={introduceMyselfMoveUrl}>
                  <source type="video/mp4"/>
             </video>
             <p>请上传30秒的自我介绍</p>
             <FileInput 
                 onChange={updateVide_30} 
                 multiple={false} 
-                className={styles.modalBtn}
-                btnValue = {'请上传'}
-            />
-        </div>
-        <div className={styles.box}>
-            <video controls="controls" className={styles.upVideo} src={trailersUrl} >
-                 <source type="video/mp4"/>
-            </video>
-            <p>请上传45秒的片花</p>
-            <FileInput 
-                onChange={updateVide_40} 
-                multiple={false} 
+                poster autoplay
                 className={styles.modalBtn}
                 btnValue = {'请上传'}
             />
