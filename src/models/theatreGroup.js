@@ -48,13 +48,14 @@ export default {
 		  	const reqData = yield call(fetchCollection,payload);
 		   	if (reqData.data && reqData.data.success) {
 		   		message.success('收藏'+reqData.data.message);
-		   		yield put({ type:'collectionSuccess',payload:{ isCollection:reqData.data.success} });
+		   		//yield put({ type:'collectionSuccess',payload:{ isCollection:reqData.data.resultObject.value} });
 		   	}else{
 		   		if (reqData.data.code === -10) {
 		   			message.error(reqData.data.message + ', 请重试');
                     relanding();
 		   		}
 		   		if (reqData.data.code === -1) {
+		   			//yield put({ type:'collectionSuccess',payload:{ isCollection:payload.id} });
 		   			message.error(reqData.data.message);
 		   		}
 		   	}
@@ -85,9 +86,12 @@ export default {
 			}
 		},
 		collectionSuccess(state,action){
+			var isCollection = state.isCollection;
+			var value = action.payload.isCollection;
+			isCollection[value] = true;
 			return{
 				...state,
-				isCollection:action.payload.isCollection,
+				isCollection:isCollection,
 			}
 		},
 	},

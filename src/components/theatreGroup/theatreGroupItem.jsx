@@ -48,13 +48,14 @@ class TheatreGroupItem extends Component{
 
 		const {
 			id,title,cover,startTime,stopTime,
-			isFirst,isNewest,createTime,theme
+			isFirst,isNewest,createTime,theme,isCollection
 		} = this.props;
 
 		var vStartTime = this.localTime(startTime);
 		var vStopTime = this.localTime(stopTime);
 		var vNow = this.localTimeDay(Date.now());
 		var vCreateTime = this.localTimeDay(createTime);
+		var me = this;
 
 		return(
 			<div style = {{padding:10}}>
@@ -73,7 +74,7 @@ class TheatreGroupItem extends Component{
 				    	</div>
 				    	<div className = { styles.features}>
 				    		<div onClick={()=>this.onCollection(id)}>
-								<img alt="example" src = {this.isCollection ? isVote:vote}/>
+								<img alt="example" src = {isCollection ? isVote:vote}/>
 							</div>
 							<Link to = { `theatreGroupDetail/${id}`}><img alt="example" src = {share}/></Link>
 						{/* <img alt="example" src = {rankingList}/> */}

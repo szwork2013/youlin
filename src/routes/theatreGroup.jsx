@@ -25,6 +25,7 @@ class TheatreGroup extends Component{
 	      	 checked: false,
 	      	 curPageNo: 1,
 			 curTag: '',
+			 isCollection:{}
 	    };
 	}
 
@@ -108,7 +109,10 @@ class TheatreGroup extends Component{
     }
 
     onCollection(e){
-    	 this.props.dispatch({ type:'theatreGroup/collection', payload:{ type:1,id:e} });
+    	var isCollection = this.state.isCollection;
+    	isCollection[e] = true;
+    	this.setState({isCollection:isCollection});
+    	this.props.dispatch({ type:'theatreGroup/collection', payload:{ type:1,id:e} });
     }
    
 	render(){
@@ -166,11 +170,11 @@ class TheatreGroup extends Component{
 					    				startTime = {value.startTime}
 					    				stopTime = {value.stopTime}
 					    				createTime = {value.createTime}
-					    				isCollected = {value.isCollected}
+					    				isCollection = {this.state.isCollection[value.id]}
 					    				onCollection = {(e)=>this.onCollection(e)}
 					    			/>
 					    		)
-					    	})
+					    	}, this)
 					    }
 
 					   <div style = {{display:'flex',justifyContent:'center',alignItems:'center',paddingTop:10,paddingBottom:20}} className = {styles.loadMoreButton}>{vNextPage}</div> 
