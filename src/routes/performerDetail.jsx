@@ -144,8 +144,7 @@ class PerformerDetail extends Component{
                     <div className={styles.video}>  
                         <p className={styles.name}>视频展示</p>
                         <div>
-                        <video poster src={ data.introduceMyselfMove} controls="controls" className={styles.videos}>
-                        </video>
+                            <video preload="auto" poster src={ data.introduceMyselfMove} controls="controls" className={styles.videos}></video>
                         </div>
                     </div>
 

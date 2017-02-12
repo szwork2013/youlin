@@ -16,11 +16,7 @@ export default {
     	setup({dispatch}) {
 	        dispatch({
 	       		type: 'collectList',
-	       		payload:{
-	       			'type':2,
-	       			'pageNo':0,
-	       			'pageSize':10
-	       		}
+	       		payload:{ 'type':2,'pageNo':0,'pageSize':100 }
 	        })
     	}
   	},

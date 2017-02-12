@@ -11,9 +11,6 @@ function UpdateVideo({
     introduceMyselfMoveUrl
 }){
 
-    console.log(introduceMyselfMoveUrl);
-    console.log(trailersUrl);
-
   return (
     <div style = {{paddingBottom:50}}>
         <div className={styles.prompt}>
@@ -22,7 +19,7 @@ function UpdateVideo({
           <p>示例视频提示用户</p>
         </div>
         <div className={styles.box}>
-            <video controls="controls" poster autoplay  className={styles.upVideo} src={introduceMyselfMoveUrl}>
+            <video preload="auto" controls="controls" poster autoplay  className={styles.upVideo} src={introduceMyselfMoveUrl}>
                  <source type="video/mp4"/>
             </video>
             <p>请上传30秒的自我介绍</p>
