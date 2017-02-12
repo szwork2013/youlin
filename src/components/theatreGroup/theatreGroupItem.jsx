@@ -48,7 +48,8 @@ class TheatreGroupItem extends Component{
 
 		const {
 			id,title,cover,startTime,stopTime,
-			isFirst,isNewest,createTime,theme,isCollection
+			isFirst,isNewest,createTime,theme,isCollection,
+			tags
 		} = this.props;
 
 		var vStartTime = this.localTime(startTime);
@@ -84,8 +85,15 @@ class TheatreGroupItem extends Component{
 					<div className = { styles.opus }>
 						<p>{title}</p>
 						<div>
-							{ theme? <Tag className = { styles.tag }>{theme}</Tag> : ''}
-							<Tag className = { styles.tag }>标签</Tag>
+							{ 
+								tags.length>0?(
+									tags.map((value,i)=>{
+									return(
+										<Tag key = {i} className = { styles.tag }>{value.name}</Tag> 
+										)
+									})
+								):<div/>
+							} 
 						</div>
 					</div>
 
@@ -107,6 +115,7 @@ TheatreGroupItem.propTypes = {
 	isNewest : PropTypes.number,
 	createTime : PropTypes.number,
 	theme : PropTypes.string,
+	tags:PropTypes.array,
 };
 
 export default TheatreGroupItem;

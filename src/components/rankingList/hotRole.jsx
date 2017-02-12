@@ -10,6 +10,9 @@ let people = 0;
 
 function HotRole(props){
 	const data = props.data;
+
+	console.log(data);
+
     return (
     	<div>
 	    	{	

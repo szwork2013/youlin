@@ -5,16 +5,20 @@ import img from '../on1.png'
 import header from '../../assets/icon/ranking_header.png';
 
 const ContestPollListItem = ({
-    number,name,totalRank,cover
+    number,
+    name,
+    totalRank,
+    cover,
+
 }) => {
 
-  return (
+    return (
         <div className={styles.normal}>
             <div className={styles.col}>
                 <img src = {cover?cover:header}/>
                 <p>NO{number}</p>
                 <p>
-                {name}
+                {name  !== null ? name : '' }
                 { number === 1? <img src={img} />:''}
                 </p>
             </div>
@@ -26,7 +30,7 @@ const ContestPollListItem = ({
 ContestPollListItem.propTypes = {
     number:PropTypes.number,
     name: PropTypes.string,
-    totalRank:PropTypes.string,
+    totalRank:PropTypes.number,
     cover:PropTypes.string,
 };
 

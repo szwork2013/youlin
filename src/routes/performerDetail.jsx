@@ -30,7 +30,6 @@ var data = {
     id:'',
     roleAtoms:'',
 };
-var names = ['张飞', '赵云' ];
 
 var tags = [];
 
@@ -89,9 +88,10 @@ class PerformerDetail extends Component{
 
             return (
                 <div style = {{marginBottom:50}}>
-
                     <div className = {styles.imgDiv}>
-                        <img src={data.cover?data.cover:coverIcon} />
+                        <div>
+                            <img src={data.cover?data.cover:coverIcon} />
+                        </div>
                     </div>
 
                     <div className= {styles.topBox}>

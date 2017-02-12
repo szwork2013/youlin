@@ -18,6 +18,24 @@ class ContestRoleList extends  Component{
     render(){
 
         const { roleData,data,groundId} = this.props;
+
+        let dataArray = [];
+
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].performerAtom && data[i].performerAtom.nickName) {}
+            dataArray.push(
+                <Link key = {i} to={`rolePerformerInfo/groundId=${groundId}&roleId=${data[i].roleAtom.id}`}>
+                    <ContestRoleListItem
+                      key = {i}
+                      number = { i+1 }
+                      cover = {data[i].recordAtom.photos}
+                      name = {data[i].performerAtom && data[i].performerAtom.nickName ? data[i].performerAtom.nickName :''}
+                      totalRank = { data[i].recordAtom.voteCount }
+                    />
+                </Link>
+            )
+        }
+
     
         return(
             <div className = {styles.normal}>
@@ -59,22 +77,7 @@ class ContestRoleList extends  Component{
                             </div>
                         </div> 
                     </div>
-                    {
-                        data.map((data,i)=>{
-                            console.log(data);
-                            return(
-                                <Link to={`rolePerformerInfo/groundId=${groundId}&roleId=${data.roleAtom.id}`}>
-                                    <ContestRoleListItem
-                                      key = {i}
-                                      number = { i+1 }
-                                      name = {data.roleAtom.name}
-                                      totalRank = { data.roleAtom.headPortrait }
-                                    />
-                                </Link>
-                            );
-                           
-                        })
-                    }
+                    {dataArray}
                  
                 <div>
             </div>

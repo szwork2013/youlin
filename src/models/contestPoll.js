@@ -60,8 +60,10 @@ export default {
 			   			"pageSize":100 
 		   			}
 		   		));
+
 		   		const contestData = JSON.parse(contestReq);
 		   		if (contestData.data && contestData.data.success) {
+		   			console.log(contestData.data.resultObject);
 			   		yield put({
 			   			type:'queryContestRoleListSuccess',
 			   			payload:{

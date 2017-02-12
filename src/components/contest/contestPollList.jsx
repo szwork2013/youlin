@@ -5,7 +5,7 @@ import ContestPollListItem from './contestPollListItem';
 
 function ContestPollList(props){
 	const data = props.data;
-	console.log(data);
+
 	return(
 		<div>
 			{
@@ -14,8 +14,9 @@ function ContestPollList(props){
 						<ContestPollListItem
 	                        key = {i}
 	                        number = {i+1}
-	                        name = {value.roleAtom.name}
-	                        totalRank = { value.roleAtom.headPortrait }
+	                        cover = {value.performerAtom.photos}
+	                        name = {value.performerAtom.nickName}
+	                        totalRank = { value.recordAtom.voteCount }
 	                    />
 					)
 					

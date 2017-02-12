@@ -119,6 +119,8 @@ class TheatreGroup extends Component{
 
 		const { resultObject,loading,tagArray,nextPage } = this.props.theatreGroup;
 
+		console.log(resultObject);
+
 		var vNextPage;
 		if (nextPage) {
 			vNextPage = (<button onClick={()=>this.onNextPage()}>点击加载更多</button>);
@@ -172,6 +174,7 @@ class TheatreGroup extends Component{
 					    				createTime = {value.createTime}
 					    				isCollection = {this.state.isCollection[value.id]}
 					    				onCollection = {(e)=>this.onCollection(e)}
+					    				tags={value.tags}
 					    			/>
 					    		)
 					    	}, this)
