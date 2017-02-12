@@ -12,6 +12,9 @@ class Me extends Component{
 
 
 	componentWillMount() {
+		if (window.location.href.indexOf('logout') !== -1) {
+			this.logout();
+		}
 		if (config.userInfo && config.userInfo.userAtom && config.userInfo.userAtom.mobile) {
            	window.location.href = '/#/me';
             // window.location.reload(); 

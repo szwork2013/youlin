@@ -46,7 +46,7 @@ class TheatreGroupDetail extends Component{
             isCheckRold:false,
             roleData:[],
             value: 'crew',
-
+            isCollection: false
         }
         this.openModal = this.openModal.bind(this);
         // this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -66,7 +66,8 @@ class TheatreGroupDetail extends Component{
         this.setState({value: value});
     };
 
-    onCollection(type,id){
+    onCollection(id){
+        this.setState({isCollection:true});
         this.props.dispatch({ type:'theatreGroupDetail/collection', payload:{ type:1,id:id} });
     }
 
@@ -130,7 +131,7 @@ class TheatreGroupDetail extends Component{
                         cover = {crewInfo.cover}
                         onShare = {()=>this.openModal()}
                         onCollection = {this.onCollection.bind(this,crewInfo.id)}
-                        isCollection = { isCollection }
+                        isCollection = { this.state.isCollection }
                         status = {crewInfo.status}
                     />
 
