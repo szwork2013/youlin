@@ -163,9 +163,7 @@ const Signup = Form.create()(React.createClass({
                     }
                 } else {
                     message.error(value.data.message);
-                    if (value.data.code === -10) {
-                        relanding();
-                    }
+                    relanding();
                 }
             },error=>{
 

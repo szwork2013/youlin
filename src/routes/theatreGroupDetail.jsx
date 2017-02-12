@@ -144,7 +144,7 @@ class TheatreGroupDetail extends Component{
                         </Tab>
                         <Tab style = {tab_styles.menuItem} label="可申请角色" value="actor">
                             <div>
-                                <TheatreGroupRoleList data = { roledata }/>
+                                <TheatreGroupRoleList data = { roledata } groupId = {crewInfo.id}/>
                                 <div style = {{display:'flex',justifyContent:'center',alignItems:'center',paddingTop:10,paddingBottom:20}} className = {styles.loadMoreButton}>{vNextPage}</div> 
                             </div>
                         </Tab>

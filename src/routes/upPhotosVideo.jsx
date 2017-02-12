@@ -35,10 +35,10 @@ class UpPhotosVideo extends Component{
         // if (!config.userInfo) {
         //      this.context.router.push('signup');
         // }
-        const match = pathToRegexp('/rolePerformerInfo/signup/:roleId&:groupId').exec(this.props.location.pathname);
+        const match = pathToRegexp('/rolePerformerInfo/signup/:groupId&:roleId').exec(this.props.location.pathname);
         if (match) {
-           var roleId = match[1]
-            var groundId = match[2];
+           var roleId = match[2]
+            var groundId = match[1];
             roleValue = roleId.replace(/[^0-9]/ig,"");
             groundValue =  groundId.replace(/[^0-9]/ig,"");
         }   
@@ -78,8 +78,9 @@ class UpPhotosVideo extends Component{
                 if (value.data.success) {
                     alert('报名'+value.data.message);
                 }else{
+                    message.error(value.data.message);
                     if (value.data.code === -10) {
-                        alert('系统异常，请重试！');
+                        //alert('系统异常，请重试！');
                         relanding();
                     }
                 }

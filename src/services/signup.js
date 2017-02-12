@@ -6,6 +6,7 @@ let URL = httpUrl();
 export function fetchSendSMS(params) {//发送短信
   return request(`${URL}/sms/send.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type":"application/x-www-form-urlencoded",
     },

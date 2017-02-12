@@ -45,7 +45,10 @@ class PersonalInfo extends Component{
     }
 
     signup(){
-        var myUserInfo = JSON.parse(localStorage.MY_USER_INFO);
+        var myUserInfo;
+        try {
+            myUserInfo = JSON.parse(localStorage.MY_USER_INFO);
+        } catch (e) {}
         if (myUserInfo && myUserInfo.targetObject) {
             switch(myUserInfo.targetObject.status) {
                 case 1: 

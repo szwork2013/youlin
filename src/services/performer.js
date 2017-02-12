@@ -6,6 +6,7 @@ let URL = httpUrl();
 export function fetchPerformerList(params) {
   return request(`${URL}/performer/list.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -17,6 +18,7 @@ export function fetchPerformerList(params) {
 export function fetchPerformerDetailList(params) {
   return request(`${URL}/performer/show.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -28,6 +30,7 @@ export function fetchPerformerDetailList(params) {
 export function fetchBanner(params) {
   return request(`${URL}/banner/get_list.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },

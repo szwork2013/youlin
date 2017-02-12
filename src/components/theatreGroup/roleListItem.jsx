@@ -35,7 +35,7 @@ const RoleListItem = ({
                 <div className={styles.roleInfo}>
                     <img  src = {cover?cover:ranking_header} className={styles.headPortrait}/>
                     <span>角色名:{name}</span>
-                    <Link to={`rolePerformerInfo/groundId=${groupId}&roleId=${id}`}>
+                    <Link to={`rolePerformerInfo/signup/groundId=${groupId}&roleId=${id}`}>
                         <span className = {styles.applicationState}>我要报名</span>
                     </Link>
                     <span className = {styles.applicationState}>已申请</span>

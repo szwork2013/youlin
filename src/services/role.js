@@ -6,6 +6,7 @@ let URL = httpUrl();
 export function fetchList(params) {
     return request(`${URL}/role/list.do`, {
         method: 'post',
+        credentials: 'include',
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -17,6 +18,7 @@ export function fetchList(params) {
 export function fetchOtherComment(params) {
     return request(`${URL}/performer/comment_list.do`, {
         method: 'post',
+        credentials: 'include',
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -40,6 +42,7 @@ export function fetchSubmitComment(params) {
 export function fetchUpdatePhoto(params) {
     return request(`${URL}/upload/uploadimg.do`, {
         method: 'post',
+        credentials: 'include',
         // headers: {
         //    "Content-Type": "multipart/form-data",
         // },
@@ -51,6 +54,7 @@ export function fetchUpdatePhoto(params) {
 export function fetchUpdateVideo(params) {
     return request(`${URL}/upload/uploadvideo.do`, {
         method: 'post',
+        credentials: 'include',
         // headers: {
         //    "Content-Type": "application/x-www-form-urlencoded",
         // },

@@ -6,6 +6,7 @@ let URL = httpUrl();
 export function fetchList(params) {
   return request(`${URL}/hot/roles.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -17,6 +18,7 @@ export function fetchList(params) {
 export function fetchHotRoleList(params) {
   return request(`${URL}/hot/performers.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },

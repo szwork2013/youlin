@@ -7,6 +7,7 @@ let URL = httpUrl();
 export function fetchWXPay(params) {
   return request(`${URL}/user/support/vote.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -18,6 +19,7 @@ export function fetchWXPay(params) {
 export function fetchWxOauth(code){//微信登陆
   return request(`${URL}/oauth/wx_oauth.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -29,6 +31,7 @@ export function fetchWxOauth(code){//微信登陆
 export function fetchWXToken(params){//获取微信sdk签名
   return request(`${URL}/oauth/get_wx_token.do`,{
     method: 'post',
+    credentials: 'include',
     headers: {
        "Content-Type": "application/x-www-form-urlencoded",
     },

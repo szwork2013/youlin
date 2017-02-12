@@ -24,7 +24,7 @@ class ContestRoleList extends  Component{
         for (var i = 0; i < data.length; i++) {
             if (data[i].performerAtom && data[i].performerAtom.nickName) {}
             dataArray.push(
-                <Link key = {i} to={`rolePerformerInfo/groundId=${groundId}&roleId=${data[i].roleAtom.id}`}>
+                <Link key = {i} to={`performerDetail/?detailId=${data[i].performerAtom.id}`}>
                     <ContestRoleListItem
                       key = {i}
                       number = { i+1 }

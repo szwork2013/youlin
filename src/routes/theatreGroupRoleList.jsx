@@ -5,11 +5,12 @@ import RoleListItem from '../components/theatreGroup/roleListItem';
 
 const TheatreGroupRoleListType = {
 	data:PropTypes.array,
+	groupId:PropTypes.number
 };
 
 
 const TheatreGroupRoleList =(props)=>{
-	const { data } = props;
+	const { data,groupId } = props;
 	console.log(data);
 
   	return ( 
@@ -27,7 +28,7 @@ const TheatreGroupRoleList =(props)=>{
 				  			roleTag = { data.movieRoleAtom.tagNames?data.movieRoleAtom.tagNames:''}
 				  			people = {data.applyCount}
 				  			signUp = {data.movieRoleAtom.regNumber?data.movieRoleAtom.regNumber:0}
-				  			groupId = { data.movieRoleAtom.groupId?data.movieRoleAtom.groupId:'' }
+				  			groupId = {groupId}
 				  			id = {data.movieRoleAtom.id?data.movieRoleAtom.id:0}
 				  			performerAtom = { data.performerAtom?data.performerAtom:[] }
 				  		/>

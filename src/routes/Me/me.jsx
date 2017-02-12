@@ -36,8 +36,8 @@ class Me extends Component{
 	render(){
 
 		config.userInfo = JSON.parse(localStorage.getItem('MY_USER_INFO')) || {};
-		var tags = config.userInfo && config.userInfo.userAtom.tags && JSON.parse(config.userInfo.userAtom.tags);
-		var specialtys = config.userInfo && config.userInfo.userAtom.specialtys && JSON.parse(config.userInfo.userAtom.specialtys);
+		var tags = config.userInfo && config.userInfo.userAtom && config.userInfo.userAtom.tags && JSON.parse(config.userInfo.userAtom.tags);
+		var specialtys = config.userInfo && config.userInfo.userAtom && config.userInfo.userAtom.specialtys && JSON.parse(config.userInfo.userAtom.specialtys);
 
 		const type = config.userInfo && config.userInfo.userAtom && config.userInfo.userAtom.type || null;
 	
@@ -46,13 +46,13 @@ class Me extends Component{
 	    		<Nav>
 			    <div className={styles.me}>
 			       	<p style={{ fontSize:20 ,color:'#fff'}}>
-			    	<span>{config.userInfo && (config.userInfo.userAtom.nickName ||config.userInfo.userAtom.username) || '我要成名'}</span>
+			    	<span>{config.userInfo && config.userInfo.userAtom && (config.userInfo.userAtom.nickName ||config.userInfo.userAtom.username) || '我要成名'}</span>
 			    	<button>
 			    		<Link to ='me/edit'><Icon className={styles.iconTop} type="edit"/></Link>
 			    	</button>
 			     	</p>
 			    	<div>
-			      		<p>星座:{config.userInfo && config.userInfo.userAtom.constellation || ''}</p>
+			      		<p>星座:{config.userInfo && config.userInfo.userAtom && config.userInfo.userAtom.constellation || ''}</p>
 			      		<p>标签:{tags && tags.map && tags.map(function(tag) {return tag.tagsname.trim()}).join(',') || ''}</p>
 			      		<p>特长:{specialtys && specialtys.map && specialtys.map(function(tag) {return tag.tagsname.trim()}).join(',') || ''}</p>
 			      		{/*<p>编辑资料</p>*/} 

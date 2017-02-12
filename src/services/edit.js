@@ -17,16 +17,16 @@ export function fetchUserInfo(params) {//
           &birthDate=${params.birthDate}
           &weight=${params.weight}
           &height=${params.height}
-          &constellation=${params.constellation}
+          &constellation=${params.constellation || ''}
           &ageGroup=${params.ageGroup}
-          &residentCity=${params.residentCity}
+          &residentCity=${params.residentCity || ''}
           &mobile=${params.mobile}
           &isShowMobile=${params.isShowMobile}
-          &school=${params.school}
-          &professional=${params.professional}
+          &school=${params.school || ''}
+          &professional=${params.professional || ''}
           &tags=${params.tags}
           &specialtys=${params.specialtys}
-          &description=${params.description}`,
+          &description=${params.description || ''}`,
     mode:"cors",
   });
 }
