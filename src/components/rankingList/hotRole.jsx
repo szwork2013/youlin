@@ -6,8 +6,6 @@ const HotRoleType = {
   data: PropTypes.array.isRequired,
 };
 
-let people = 0;
-
 function HotRole(props){
 	const data = props.data;
 
@@ -17,23 +15,9 @@ function HotRole(props){
     	<div>
 	    	{	
 	    		data.map((data,i)=>{
-	    			if (i === 0) {
-	    				people = 100;
-	    			}else if (i === 1) {
-	    				people = 80;
-	    			}else if (i === 2) {
-	    				people = 76;
-	    			}else if (i === 3) {
-	    				people = 32;
-	    			}else if (i === 4) {
-	    				people = 32;
-	    			}else{
-	    				people = 0;
-	    			}
 	    			return(
 	    				<Link key = {i} to={`hotRole/hotRoleItem/${data.roleAtom.id}`} style = {{ color:'#666'}} activeStyle={{ background: 'light', color: '#fff' }}>
 		    		 		<HotRoleListItem
-		    		 			key = {i}
 		    		 			groupId ={data.roleAtom.groupId}
 		    		 			id = {data.roleAtom.id}
 		    		 			name = {data.roleAtom.name}
@@ -41,7 +25,7 @@ function HotRole(props){
 		    		 			trait = {data.roleAtom.trait}
 		    		 			description = {data.roleAtom.description}
 		    		 			performers = {data.performers}
-		    		 			people = {people}
+		    		 			people = {data.roleAtom.regNumber}
 		    		 			cover = {data.roleAtom.cover}
 		    		 		/>
 		    		 	</Link>

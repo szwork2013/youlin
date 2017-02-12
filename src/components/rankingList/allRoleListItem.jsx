@@ -7,11 +7,7 @@ import vote from '../../assets/rank/vote.png';
 import isvote from '../../assets/rank/isvote.png';
 import headImage from '../../assets/icon/header.png';
 
-
-let vUpCount = 0;
-
 class AllRoleListItem extends Component{
-
 
     constructor(props) {
         super(props);
@@ -32,16 +28,26 @@ class AllRoleListItem extends Component{
     }
 
     render(){
-        const { heatCount,nickName,roleName,ranking,
-                tagNames,headPortrait,upCount,voteCount,
-                upCountClick,voteCountClick,roleId,groupName
-            } = this.props; 
+        const { heatCount,nickName,roleName,ranking,cover,
+            tagNames,headPortrait,upCount,voteCount,
+            upCountClick,voteCountClick,roleId,groupName
+        } = this.props;
+
+        let vTag =  (new Function("return " + tagNames))();
+        let tagArray = [];
+        if (vTag && vTag.length>0) {
+            for (var i = 0; i < vTag.length; i++) {
+                tagArray.push(
+                     <span>{vTag[i].tagsname}</span>
+                )
+            }
+        }
 
          return (
             <div>
                 <div className={styles.box}>
                     <div className={styles.boxTop}>
-                        <img src = {headPortrait?headPortrait:headImage}/>
+                        <img src = {cover?cover:headImage}/>
                         <div className={styles.character}>
                             <p>{nickName}</p>
                             <p>
@@ -51,7 +57,7 @@ class AllRoleListItem extends Component{
                                 <span className={styles.fontColor}>{heatCount}</span>
                                 <span>热度</span>
                             </p>
-                            <span className={styles.tag}>标签：{tagNames}</span>
+                            <span className={styles.tag}>标签：{tagArray}</span>
                         </div>
                     </div>
                     <div className={styles.botton}>
@@ -74,6 +80,7 @@ class AllRoleListItem extends Component{
 
 AllRoleListItem.propTypes = {
     heatCount:PropTypes.number,
+    cover:PropTypes.string,
     nickName:PropTypes.string,
     roleName:PropTypes.string,
     ranking:PropTypes.number,

@@ -18,10 +18,17 @@ const RoleListItem = ({
     cover,
     id
 }) => {
+    
+    let vTag =  (new Function("return " + roleTag))();
+    let tagArray = [];
+    if (vTag && vTag.length>0) {
+        for (var i = 0; i < vTag.length; i++) {
+            tagArray.push(
+                 <span className = {styles.tag}>{vTag[i].tagsname}</span>
+            )
+        }
+    }
 
-
-    var string = "[{tagsname:'活泼',tagsId:10},{tagsname:'活泼',tagsId:10}]";
-    // var obj=string.replace(/\{([^\}]+)\}/g,"$1,").split(",")
     return (
         <div>
             <div className={styles.box}>
@@ -39,15 +46,7 @@ const RoleListItem = ({
                 </p>
                 <p>年龄段:{ageGroup}</p>
                 <p>性别:{sex === 1 ? '女':'男'}</p>
-                <p>角色标签:
-                    {
-                        // roleTag.map((value,i)=>{
-                        //     return(
-                        //         <span>{value.tagsname}</span>
-                        //     )
-                        // })
-                    }
-                </p>
+                <p>角色标签:  {tagArray}</p>
                 <p>
                     {
                         performerAtom.map((value,i)=>{

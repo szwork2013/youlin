@@ -33,12 +33,16 @@ const HotRoleListItem = ({
         </div>
         <div className = { styles.enlist }>
               {
-                  performers.map((data,i)=>(
-                      <img
+                  performers.map((data,i)=>{
+                    return(
+                       <img
+                        key = {i}
                         src = {data?data:rankingHeader}
                         key = {i}
                       />
-                  ))
+                    )
+                  })
+          
                 }
               <div>
                 <p>已报名:{people}人</p>
