@@ -14,7 +14,7 @@ const RoleListItem = ({
     roleTag,
     signUp,
     groupId,
-    performerAtom,
+    performerCover,
     cover,
     id
 }) => {
@@ -49,10 +49,12 @@ const RoleListItem = ({
                 <p>角色标签:  {tagArray}</p>
                 <p>
                     {
-                        performerAtom.map((value,i)=>{
-                            return(
-                                <img src={value?value:ranking_header} className={styles.img}/>
-                            )
+                        performerCover.map((value,i)=>{
+                            if (i<5) {
+                                return(
+                                    <img src={value?value:ranking_header} className={styles.img}/>
+                                )
+                            }
                         })
                     }
                     <Icon type="ight-circle-o"  className={styles.icon}/>
@@ -73,7 +75,7 @@ RoleListItem.propTypes = {
     roleTag:PropTypes.string,
     signUp:PropTypes.number,
     groupId:PropTypes.number,
-    performerAtom:PropTypes.array,
+    performerCover:PropTypes.array,
     cover:PropTypes.string,
     id:PropTypes.number,
 };

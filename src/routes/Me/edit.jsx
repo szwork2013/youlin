@@ -88,13 +88,20 @@ class Edit extends Component{
     }
 
     updateCover(files){
-        var formData = new FormData();
+        let formData = new FormData();
         formData.append('userfile',files[0]);
+        formData.append('type','cover');
 
         fetchUpdatePhoto(formData).then(
             value => {
-                this.setState({cover:value.data.url});
-                this.props.dispatch({ type:'edit/setCover',payload:{cover:value.data.url}});
+                if (value.data) {
+                    if (value.data.state === '-1') {
+                        alert(value.data.message);
+                    }else{
+                        this.setState({cover:value.data.url});
+                        this.props.dispatch({ type:'edit/setCover',payload:{cover:value.data.url}});
+                    }
+                }
             },
             error => this.setState({error: error})
         );
@@ -105,7 +112,15 @@ class Edit extends Component{
         formData.append('userfile',files[0]);
 
         fetchUpdatePhoto(formData).then(
-            value => this.props.dispatch({ type:'edit/setHeaderImage',payload:{headImg:value.data.url}}),
+            value => {
+                if (value.data) {
+                    if (value.data.state === '-1') {
+                        alert(value.data.message);
+                    }else{
+                        this.props.dispatch({ type:'edit/setHeaderImage',payload:{headImg:value.data.url}});
+                    }
+                }
+            },
             error => this.setState({error: error})
         );
     }
@@ -115,7 +130,15 @@ class Edit extends Component{
         formData.append('userfile',files[0]);
 
         fetchUpdatePhoto(formData).then(
-            value => this.props.dispatch({ type:'edit/setPhoto',payload:{albums:value.data.url}}),
+            value => {
+               if (value.data) {
+                    if (value.data.state === '-1') {
+                        alert(value.data.message);
+                    }else{
+                        this.props.dispatch({ type:'edit/setPhoto',payload:{albums:value.data.url}});
+                    }
+                }
+            },
             error => this.setState({error: error})
         );
     }
@@ -227,16 +250,3 @@ function mapStateToProps({ edit }) {
 Edit.propTypes = EditType;
 
 export default connect(mapStateToProps)(Edit);
-
-
- // <Menu 
- //                        className = {styles.customMenu}
- //                        mode = "horizontal"
- //                        selectedKeys={[this.state.selectItem]}
- //                        onSelect = {(e)=>this.onSelect(e)}
- //                    >
- //                        <Item key={'info'} className = { styles.customMenuItem }>个人资料</Item>
- //                        <Item key={'photo'} className = { styles.customMenuItem }>照片</Item>
- //                        <Item key={'video'} className = { styles.customMenuItem }>视频</Item>
- //                        <Item key={'experience'} className = { styles.customMenuItem }>演员经历</Item>
- //                    </Menu>

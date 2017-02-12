@@ -65,13 +65,15 @@ class  RankingRoleDetail  extends Component{
                             return(
                                  <Item
                                     key = {i}
+                                    cover = {data.performerAtom && data.performerAtom.photos ?data.performerAtom.photos :''}
                                     roleName = {data.roleAtom.name}
                                     tagNames = {data.roleAtom.name}
                                     heatCount = {data.recordAtom.heatCount}
-                                    nickName = {(data.performerAtom &&data.performerAtom.nickName)?data.performerAtom.nickName:'' }
+                                    nickName = {data.performerAtom &&data.performerAtom.nickName?data.performerAtom.nickName:'' }
                                     ranking = {i+1}
+                                    groupName = {data.roleAtom && data.roleAtom.groupName ?data.roleAtom.groupName :'' }
                                     headPortrait = {data.recordAtom.headPortrait}
-                                    tagNames = {data.roleAtom.tagNames}
+                                    tagNames = {data.performerAtom && data.performerAtom.tags ?data.performerAtom.tags :''}
                                     upCount = {data.recordAtom.upCount}
                                     voteCount = {data.recordAtom.voteCount}
                                     voteCountClick = {()=>this.voteCountClick()}

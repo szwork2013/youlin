@@ -46,7 +46,7 @@ export function fetchUpdatePhoto(params) {
         // headers: {
         //    "Content-Type": "multipart/form-data",
         // },
-        body: params,
+        body:params ,
         // mode:"cors",
     });
 }

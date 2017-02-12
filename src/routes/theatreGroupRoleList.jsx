@@ -11,8 +11,6 @@ const TheatreGroupRoleListType = {
 
 const TheatreGroupRoleList =(props)=>{
 	const { data,groupId } = props;
-	console.log(data);
-
   	return ( 
     	<div>
     		{
@@ -30,7 +28,7 @@ const TheatreGroupRoleList =(props)=>{
 				  			signUp = {data.movieRoleAtom.regNumber?data.movieRoleAtom.regNumber:0}
 				  			groupId = {groupId}
 				  			id = {data.movieRoleAtom.id?data.movieRoleAtom.id:0}
-				  			performerAtom = { data.performerAtom?data.performerAtom:[] }
+				  			performerCover = { data.performerCover?data.performerCover:[] }
 				  		/>
 		    		)
 		    	})

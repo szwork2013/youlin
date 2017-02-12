@@ -164,8 +164,7 @@ class PersonalInfo extends Component{
             </div>
             <div className={styles.video}>
                 <p className={styles.name}>视频展示</p>
-                <video poster = {videoIcon} src={data.introduceMyselfMove} type="video/mp4">
-                </video>
+                <video preload="auto" poster = {videoIcon} src={data.introduceMyselfMove} type="video/mp4"></video>
             </div>
             <div className={styles.canvass}>
                 <Button type="primary" className={styles.btn}><Icon type="link" />
