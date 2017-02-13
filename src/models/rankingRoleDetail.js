@@ -50,10 +50,6 @@ export default {
 			   		if (req.data.code === -10) {			   			
 			   			alert(req.data.message + ', 请重试');
                         relanding();
-    					window.location.href = '/#/signup';
-			   		}else if (req.data.code === -1) {
-			   			localStorage.removeItem('MY_USER_INFO');
-    					window.location.href = '/#/signup';
 			   		}else{
 			   			alert(req.data.message);
 			   		}

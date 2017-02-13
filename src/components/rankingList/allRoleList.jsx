@@ -13,21 +13,19 @@ class AllRoleList extends Component{
 	    	<div style = {{paddingBottom:50}}>
 	        {
 	            data.map((data,i)=>{
-	            	console.log(data.performerAtom.photos);
 	            	return(
-	            		<Link key = {i} to={`rolePerformerInfo/groundId=${data.roleAtom.groupId}&roleId=${data.roleAtom.id}`} style = {{ color:'#666'}} activeStyle={{ background: 'light', color: '#fff' }}>
+	            		<Link key = {i} to={`rolePerformerInfo/groundId=${data.roleAtom.groupId}&roleId=${data.performerAtom.id}`} style = {{ color:'#666'}} activeStyle={{ background: 'light', color: '#fff' }}>
 		                    <AllRoleListItem
 		                        key = {i}
 		                        cover = {data.performerAtom.photos}
 		                        roleName = {data.roleAtom.name}
-		                        tagNames = {data.roleAtom.name}
 		                        heatCount = {data.recordAtom.heatCount}
 		                        upCount = {data.recordAtom.upCount}
 		                        voteCount = {data.recordAtom.voteCount}
 		                        nickName = {data.performerAtom && data.performerAtom.nickName ? data.performerAtom.nickName:''}
 		                        ranking = {i+1}
 		                        groupName = {data.roleAtom.groupName}
-		                        tagNames = {data.roleAtom.tagNames}
+		                        tagNames = {data.performerAtom.tags}
 		                    />
 	                	</Link>
 	            	);

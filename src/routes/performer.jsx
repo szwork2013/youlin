@@ -55,6 +55,7 @@ const Performer = ({
 	  		{
 
 				resultObject.map((data, i) => {
+					let random = parseInt(1000000*Math.random()); 
 					return(
 						<Link to={`performerDetail/?detailId=${data.id}`} style = {{color:'#999'}}>
 			    			<PerformerListItem
@@ -68,6 +69,7 @@ const Performer = ({
 		  						weight = {data.weight}
 		  						height = {data.height}
 		  						hotDegree = {data.hotDegree}
+		  						recommend = {random}
 			    			/>
 			    		</Link>
 					)

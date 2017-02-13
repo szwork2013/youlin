@@ -106,10 +106,13 @@ class PersonalInfo extends Component{
             data.id = data.performerAtom.id;
             data.userId = data.performerAtom.userId;
 
+
+
             try {
                 if (eval(data.tags)) {
-                    for (let i = 0; i < eval(data.tags).length; i++) {
-                        vtags.push(<Tag className={styles.tag}>{data.tags[i].tagsname}</Tag>);
+                    let vTag =  (new Function("return " + data.tags))();
+                    for (let i = 0; i < vTag.length; i++) {
+                        vtags.push(<Tag className={styles.tag}>{vTag[i].tagsname}</Tag>);
                     }
                 }
 
