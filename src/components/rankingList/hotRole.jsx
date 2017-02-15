@@ -7,8 +7,8 @@ const HotRoleType = {
 };
 
 function HotRole(props){
-	const data = props.data;
 
+	const data = props.data;
 	console.log(data);
 
     return (
@@ -21,8 +21,8 @@ function HotRole(props){
 		    		 			groupId ={data.roleAtom.groupId}
 		    		 			id = {data.roleAtom.id}
 		    		 			name = {data.roleAtom.name}
-		    		 			character = {data.roleAtom.character}
-		    		 			trait = {data.roleAtom.trait}
+		    		 			character = {data.roleAtom && data.roleAtom.character?data.roleAtom.character : '' }
+		    		 			tagNames = {data.roleAtom && data.roleAtom.tagNames? data.roleAtom.tagNames : ''}
 		    		 			description = {data.roleAtom.description}
 		    		 			performers = {data.performers}
 		    		 			people = {data.roleAtom.regNumber}

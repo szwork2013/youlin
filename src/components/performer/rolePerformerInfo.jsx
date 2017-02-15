@@ -106,8 +106,6 @@ class PersonalInfo extends Component{
             data.id = data.performerAtom.id;
             data.userId = data.performerAtom.userId;
 
-
-
             try {
                 if (eval(data.tags)) {
                     let vTag =  (new Function("return " + data.tags))();
@@ -117,7 +115,7 @@ class PersonalInfo extends Component{
                 }
 
                 if(!!data.roleAtoms){
-                    for (var i = 0; i < data.roleAtoms.length; i++) {
+                    for (let i = 0; i < data.roleAtoms.length; i++) {
                        competeRole.push(<p key= {i} >竞演角色{i+1}:{data.roleAtoms[i].name}</p>)
                     }
                 }
@@ -142,11 +140,8 @@ class PersonalInfo extends Component{
                 </div>
             </div>
             <div className={styles.role}>
-                <div>
-                    <p className={styles.name}>竞演角色</p>
-                        {competeRole}
-                </div>
-                <Link to = {`hotRole/hotRoleItem/${data.id}`}>更多>></Link>
+                <div><p className={styles.name}>竞演角色</p>{competeRole}</div>
+                { data.roleAtoms &&data.roleAtoms.length > 3 ? <Link className = {styles.more} to = {`hotRole/hotRoleItem/${data.id}`}>更多>></Link> : <div/>}
             </div>
             <div className={styles.essential}>
                 <p className={styles.name}>基本信息</p>
@@ -171,9 +166,9 @@ class PersonalInfo extends Component{
             </div>
             <div className={styles.canvass}>
                 <Button type="primary" className={styles.btn}><Icon type="link" />
-                     <a href={`http://iwantfame.91youlin.com/wxpay/?roleId=${ data.id}`} target="_blank">我要竞演</a>
+                     <a href={`http://iwantfame.91youlin.com/wxpay/?roleId=${ data.id}`} target="_blank">为他投票</a>
                 </Button>
-                <Button type="primary" onClick={()=>this.openModal()} className={styles.btn} ><Icon type="link" />竞演角色</Button>
+                <Button type="primary" onClick={()=>this.openModal()} className={styles.btn} ><Icon type="link" />为他拉票</Button>
                 <Button type="primary"  onClick={()=>{this.signup()}} className={styles.btn}>
                     <Icon type="link" />
                     我要报名

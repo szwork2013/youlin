@@ -112,14 +112,12 @@ class TheatreGroup extends Component{
     	var isCollection = this.state.isCollection;
     	isCollection[e] = true;
     	this.setState({isCollection:isCollection});
-    	this.props.dispatch({ type:'theatreGroup/collection', payload:{ type:1,id:e} });
+    	this.props.dispatch({ type:'theatreGroup/collection', payload:{ type:2,id:e} });
     }
    
 	render(){
 
 		const { resultObject,loading,tagArray,nextPage } = this.props.theatreGroup;
-
-		console.log(resultObject);
 
 		var vNextPage;
 		if (nextPage) {
@@ -136,8 +134,6 @@ class TheatreGroup extends Component{
 				}
 			}
 		}
-
-		console.log(img1);
 
 		return (
 			<div>

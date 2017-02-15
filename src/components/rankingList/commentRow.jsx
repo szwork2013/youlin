@@ -1,6 +1,5 @@
 import React,{ PropTypes } from 'react';
 import styles from './CommentRow.less';
-import { Tag ,Button,Input ,Icon } from 'antd';
 
 const CommentRow = ({ title,comment,date }) => {
   return (

@@ -6,6 +6,8 @@ import ContestPollListItem from './contestPollListItem';
 function ContestPollList(props){
 	const data = props.data;
 
+	console.log(data);
+
 	return(
 		<div>
 			{

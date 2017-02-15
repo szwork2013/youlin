@@ -7,7 +7,7 @@ import rankingHeader from '../../assets/icon/ranking_header.png';
 const HotRoleListItem = ({
   name,
   character,
-  trait,
+  tagNames,
   description,
   performers,
   cover,
@@ -16,47 +16,67 @@ const HotRoleListItem = ({
   people
 }) => {
 
-  return (
-    <div className = { styles.normal }>
-        <div className = { styles.row }>
-          	<img width = '80' height = '80' src ={cover?cover:header}/>
-          	<div className = { styles.rowRigth }>
-          		<p>{name}
-                    <Link to={`rolePerformerInfo/groundId=${groupId}&roleId=${id}`}>
-                        <span className = {styles.applicationState}>报名</span>
-                    </Link>
-                </p>
-          		<p>性格：{character}</p>
-          		<p>特征：{trait}</p>
-          		<p>{description}</p>
-          	</div>
+    let characterArray = [];
+    let tagArray = [];
+
+    if (character) {
+        let vCharacter =  (new Function("return " + character))();
+        for (let i = 0; i < vCharacter.length; i++) {
+            characterArray.push(<span className={styles.tag}>{vCharacter[i].tagsname}</span>);
+        }
+    }
+
+    if (tagNames) {
+        let vTagNames =  (new Function("return " + tagNames))();
+        for (let i = 0; i < vTagNames.length; i++) {
+            tagArray.push(<span className={styles.tag}>{vTagNames[i].tagsname}</span>);
+        }
+    }
+
+    return (
+        <div className = { styles.normal }>
+            <div className = { styles.row }>
+
+                <div className = { styles.headerImg }>
+              	     <img src ={cover?cover:header}/>
+                </div>
+              	<div className = { styles.rowRigth }>
+              		<p>{name}
+                        <Link to={`rolePerformerInfo/groundId=${groupId}&roleId=${id}`}>
+                            <span className = {styles.applicationState}>报名</span>
+                        </Link>
+                    </p>
+              		<p>性格：{characterArray}</p>
+              		<p>特征：{tagArray}</p>
+                    <div><p>{description}</p></div>
+              	</div>
+            </div>
+            <div className = { styles.enlist }>
+                  {
+                      performers.map((data,i)=>{
+                        return(
+                           <img
+                            key = {i}
+                            src = {data?data:rankingHeader}
+                            key = {i}
+                          />
+                        )
+                      })
+              
+                    }
+                  <div>
+                    <p>已报名:{people}人</p>
+                    <p></p>
+                  </div>
+            </div>
         </div>
-        <div className = { styles.enlist }>
-              {
-                  performers.map((data,i)=>{
-                    return(
-                       <img
-                        key = {i}
-                        src = {data?data:rankingHeader}
-                        key = {i}
-                      />
-                    )
-                  })
-          
-                }
-              <div>
-                <p>已报名:{people}人</p>
-                <p></p>
-              </div>
-        </div>
-    </div>
   );
 };
 
 HotRoleListItem.propTypes = {
     name:PropTypes.string,
-    character:PropTypes.string,
-    trait:PropTypes.string,
+    character:PropTypes.array,
+    tagNames:PropTypes.array,
     description:PropTypes.string,
     performers:PropTypes.array,
     cover:PropTypes.string,

@@ -47,9 +47,6 @@ export default {
 				   		const wxdata = yield call(fetchWXToken,payload={url:window.location.href});
 
 						const url = window.location.href+`canvassingId=${recodeId}`;
-						console.log(url);
-
-						alert(JSON.stringify(wxdata.data));
 						   
 						if (wxdata.data && wxdata.data.success) {
 							const data = wxdata.data.resultObject;

@@ -68,7 +68,7 @@ class TheatreGroupDetail extends Component{
 
     onCollection(id){
         this.setState({isCollection:true});
-        this.props.dispatch({ type:'theatreGroupDetail/collection', payload:{ type:1,id:id} });
+        this.props.dispatch({ type:'theatreGroupDetail/collection', payload:{ type:2,id:id} });
     }
 
     openModal() {
